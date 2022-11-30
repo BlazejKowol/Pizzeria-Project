@@ -171,12 +171,25 @@
         for(let optionId in param.options) {
           // determine option value, e.g. optionId = 'olives', option = {label: 'Olives', price: 2, default: true}
           const option = param.options[optionId];
+          // create optionImage by finding the params and options
+          const optionImage = thisProduct.imageWrapper.querySelector('.' + paramId + '-' + optionId);
+          console.log('option image', optionImage);
+          // check if there's an option Image
+          if(optionImage) {
+            // if the option is checked, add it
+            if(formData[paramId] && formData[paramId].includes(optionId)) {
+              optionImage.classList.add(classNames.menuProduct.imageVisible);
+              // if the option is not checked, remove it
+            } else {
+              optionImage.classList.remove(classNames.menuProduct.imageVisible);
+            }
+          }
           // check if there is param with a name of paramId in formData
           if(formData[paramId] && formData[paramId].includes(optionId)) {
           // check if the option is not default
             if(!option.default == true) {
               // add option price to price variable
-              price = price + option['price'];
+              price = price + option['price'];            
             }
           } else {
             // check if the option is default
