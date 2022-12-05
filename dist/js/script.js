@@ -241,11 +241,9 @@
         thisWidget.value = newValue;
       }
 
-      /*TODO: Add Validation */
-
       thisWidget.value = newValue;
       thisWidget.input.value = thisWidget.value;
-      thisWidget.announce();    
+      thisWidget.announce();
     } 
 
     announce(){
