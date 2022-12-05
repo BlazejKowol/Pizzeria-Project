@@ -1,7 +1,5 @@
 /* global Handlebars, utils, dataSource */ // eslint-disable-line no-unused-vars
 
-const { Value } = require("sass");
-
 {
   'use strict';
 
@@ -221,7 +219,8 @@ const { Value } = require("sass");
       const thisWidget = this;
 
       thisWidget.getElements(element);
-      thisWidget.setValue(value);
+      thisWidget.setValue(thisWidget.input.value);
+      thisWidget.initActions();
 
       console.log('Amount Widget:', thisWidget);
       console.log('constructor arguments:', element);
@@ -240,15 +239,32 @@ const { Value } = require("sass");
       const thisWidget = this;
 
       const newValue = parseInt(value);
+      const maxValue = settings.amountWidget.defaultMax;
+      const minValue = settings.amountWidget.defaultMin;
 
       /*TODO: Add Validation */
 
       thisWidget.value = newValue;
       thisWidget.input.value = thisWidget.value;
 
-      if(thisWidget.value !== newValue && !isNaN(newValue)) {
+      if(thisWidget.value !== newValue && !isNaN(newValue) && maxValue + 1 <= newValue && minValue - 1 >= newValue) {
         thisWidget.value = newValue;
-      }
+      }  
+    }  
+
+    initActions(){
+      const thisWidget = this;
+      thisWidget.input.addEventListener('change', function(){
+        thisWidget.setValue(thisWidget.value);
+      });
+      thisWidget.linkDecrease.addEventListener('click', function(event){
+        event.preventDefault();
+        thisWidget.setValue(--thisWidget.value);
+      });
+      thisWidget.linkIncrease.addEventListener('click', function(event){
+        event.preventDefault();
+        thisWidget.setValue(++thisWidget.value);
+      });
     }
   }
 
