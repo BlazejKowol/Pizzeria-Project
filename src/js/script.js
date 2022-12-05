@@ -150,7 +150,6 @@
         /* find active product (product that has active class) */
 
         const activeProduct = document.querySelector(select.all.menuProductsActive);
-        console.log('Active Product is: ', activeProduct);
 
         /* if there is active product and it's not thisProduct.element, remove class active from it */
 
@@ -271,11 +270,12 @@
       const maxValue = settings.amountWidget.defaultMax;
       const minValue = settings.amountWidget.defaultMin;
 
-      if(thisWidget.value !== newValue && !isNaN(newValue) && maxValue + 1 <= newValue && minValue - 1 >= newValue) {
+      if(thisWidget.value !== newValue && !isNaN(newValue) 
+      && newValue <= maxValue + 1 
+      && newValue >= minValue) {
         thisWidget.value = newValue;
       }
 
-      thisWidget.value = newValue;
       thisWidget.input.value = thisWidget.value;
       thisWidget.announce();
     } 
@@ -294,12 +294,30 @@
       });
       thisWidget.linkDecrease.addEventListener('click', function(event){
         event.preventDefault();
-        thisWidget.setValue(--thisWidget.value);
+        thisWidget.setValue(thisWidget.value - 1);
       });
       thisWidget.linkIncrease.addEventListener('click', function(event){
         event.preventDefault();
-        thisWidget.setValue(++thisWidget.value);
+        thisWidget.setValue(thisWidget.value + 1);
       });
+    }
+  }
+
+  class Cart {
+    constructor(element){
+      const thisCart = this;
+
+      thisCart.products = [];
+
+      thisCart.getElements(element);
+
+      console.log('new cart', thisCart);
+    }
+
+    getElements(element) {
+      const thisCart = this;
+      thisCart.dom = {};
+      thisCart.dom.wrapper = element;
     }
   }
 
@@ -307,7 +325,6 @@
     initMenu: function(){
       const thisApp = this;
 
-      console.log('this app data: ', thisApp.data);
       for(let productData in thisApp.data.products){
         new Product(productData, thisApp.data.products[productData]);
       }
@@ -317,6 +334,12 @@
       const thisApp= this;
       
       thisApp.data = dataSource;
+    },
+
+    initCart: function(){
+      const thisApp = this;
+      const cartElem = document.querySelector(select.containerOf.cart);
+      thisApp.cart = new Cart(cartElem);
     },
 
     init: function(){
@@ -329,6 +352,7 @@
 
       thisApp.initData();
       thisApp.initMenu();
+      thisApp.initCart();
     },
   };
 
