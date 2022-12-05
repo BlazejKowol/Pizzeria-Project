@@ -63,8 +63,6 @@
       thisProduct.initOrderForm();
       thisProduct.initAmountWidget();
       thisProduct.processOrder();
-
-      console.log('new product: ', thisProduct);
     }
       
     renderInMenu(){
@@ -135,7 +133,6 @@
 
     initOrderForm(){
       const thisProduct = this;
-      console.log('Init Order Form', thisProduct.processOrder);
 
       thisProduct.form.addEventListener('submit', function(event){
         event.preventDefault();
@@ -158,11 +155,13 @@
       const thisProduct = this;
 
       thisProduct.amountWidget = new AmountWidget(thisProduct.amountWidgetElem);
+      thisProduct.amountWidgetElem.addEventListener('updated', function(){
+        thisProduct.processOrder();
+      });
     }
 
     processOrder(){
       const thisProduct = this;
-      console.log('Process Order: ', thisProduct.processOrder);
 
       // convert form to object structure e.g. {sauce: ['tomato'], toppings: 
       const formData = utils.serializeFormToObject(thisProduct.form);
@@ -181,7 +180,6 @@
           const option = param.options[optionId];
           // create optionImage by finding the params and options
           const optionImage = thisProduct.imageWrapper.querySelector('.' + paramId + '-' + optionId);
-          console.log('option image', optionImage);
           // check if there's an option Image
           if(optionImage) {
             // if the option is checked, add it
@@ -208,7 +206,7 @@
           }
         }
       }
-
+      price *= thisProduct.amountWidget.value;
       // update calculated price in the HTML
       thisProduct.priceElem.innerHTML = price;
     }
@@ -221,9 +219,6 @@
       thisWidget.getElements(element);
       thisWidget.setValue(thisWidget.input.value);
       thisWidget.initActions();
-
-      console.log('Amount Widget:', thisWidget);
-      console.log('constructor arguments:', element);
     }
 
     getElements(element){
@@ -242,20 +237,28 @@
       const maxValue = settings.amountWidget.defaultMax;
       const minValue = settings.amountWidget.defaultMin;
 
+      if(thisWidget.value !== newValue && !isNaN(newValue) && maxValue + 1 <= newValue && minValue - 1 >= newValue) {
+        thisWidget.value = newValue;
+      }
+
       /*TODO: Add Validation */
 
       thisWidget.value = newValue;
       thisWidget.input.value = thisWidget.value;
+      thisWidget.announce();    
+    } 
 
-      if(thisWidget.value !== newValue && !isNaN(newValue) && maxValue + 1 <= newValue && minValue - 1 >= newValue) {
-        thisWidget.value = newValue;
-      }  
-    }  
+    announce(){
+      const thisWidget = this;
+
+      const event = new Event('updated');
+      thisWidget.element.dispatchEvent(event);
+    }
 
     initActions(){
       const thisWidget = this;
       thisWidget.input.addEventListener('change', function(){
-        thisWidget.setValue(thisWidget.value);
+        thisWidget.setValue(thisWidget.input.value);
       });
       thisWidget.linkDecrease.addEventListener('click', function(event){
         event.preventDefault();
