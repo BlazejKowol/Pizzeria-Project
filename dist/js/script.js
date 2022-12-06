@@ -240,8 +240,8 @@
           }
         }
       }
-      price *= thisProduct.amountWidget.value;
       thisProduct.priceSingle = price; 
+      price *= thisProduct.amountWidget.value;
       // update calculated price in the HTML
       thisProduct.priceElem.innerHTML = price;
     }
