@@ -331,7 +331,9 @@
     announce(){
       const thisWidget = this;
 
-      const event = new Event('updated');
+      const event = new CustomEvent('updated', {
+        bubbles: true
+      });
       thisWidget.element.dispatchEvent(event);
     }
 
@@ -359,8 +361,6 @@
 
       thisCart.getElements(element);
       thisCart.initActions();
-
-      console.log('new cart', thisCart);
     }
 
     getElements(element) {
@@ -370,6 +370,10 @@
 
       thisCart.dom.toggleTrigger = thisCart.dom.wrapper.querySelector(select.cart.toggleTrigger);
       thisCart.dom.productList = thisCart.dom.wrapper.querySelector(select.cart.productList);
+      thisCart.dom.deliveryFee = thisCart.dom.wrapper.querySelector(select.cart.deliveryFee);
+      thisCart.dom.subtotalPrice = thisCart.dom.wrapper.querySelector(select.cart.subtotalPrice);
+      thisCart.dom.totalPrice = thisCart.dom.wrapper.querySelectorAll(select.cart.totalPrice);
+      thisCart.dom.totalNumber = thisCart.dom.wrapper.querySelector(select.cart.totalNumber);
     }
 
     initActions(){
@@ -377,6 +381,10 @@
 
       thisCart.dom.toggleTrigger.addEventListener('click', function(){
         thisCart.dom.wrapper.classList.toggle(classNames.cart.wrapperActive);
+      });
+
+      thisCart.dom.productList.addEventListener('updated', function(){
+        thisCart.update();
       });
     }
 
@@ -389,10 +397,38 @@
 
       thisCart.dom.productList.appendChild(generatedDOM);
 
-      console.log('adding product', menuProduct);
-
       thisCart.products.push(new CartProduct(menuProduct, generatedDOM));
-      console.log('thisCart.products', thisCart.products);
+
+      thisCart.update();
+    }
+
+    update(){
+      const thisCart = this;
+
+      const deliveryFee = settings.cart.defaultDeliveryFee;
+      thisCart.totalNumber = 0;
+      thisCart.subtotalPrice = 0;
+      /*skąd JS wie, skąd pobierać wartość właściwości amount i price? 
+        W jaki sposób mu to przekazujemy?
+        i gdzie dokładnie znajdują się tego referencje?*/
+
+      for(const product of thisCart.products){
+        thisCart.totalNumber += product.amount;
+        thisCart.subtotalPrice += product.price;
+      }
+      if(thisCart.totalNumber != 0){
+        thisCart.totalPrice = thisCart.subtotalPrice + deliveryFee;
+      } else {
+        thisCart.totalPrice = 0;
+      }
+      console.log('totalPrice', thisCart.totalPrice, 'total number', thisCart.totalNumber, 'subtotalPrice', thisCart.subtotalPrice);
+      thisCart.dom.totalNumber.innerHTML = thisCart.totalNumber;
+      thisCart.dom.subtotalPrice.innerHTML = thisCart.subtotalPrice;
+      thisCart.dom.deliveryFee.innerHTML = deliveryFee;
+
+      for(const price of thisCart.dom.totalPrice){
+        price.innerHTML = thisCart.totalPrice; // szukamy w całej stałej każdej ceny produktu dodanego do koszyka, i zmieniamy to w obiekt. tylko czemu "price.innerHTML?"
+      }
     }
   }
 
@@ -408,7 +444,6 @@
       thisCartProduct.params = menuProduct.params;
       
       thisCartProduct.getElements(element);
-      console.log('thisCartProduct', thisCartProduct);
       thisCartProduct.initAmountWidget();
     }
 
