@@ -3,6 +3,14 @@ import Product from './components/Product.js';
 import Cart from './components/Cart.js';
 
 const app = {
+  initPages: function(){
+    const thisApp = this;
+
+    thisApp.pages = document.querySelector(select.containerOf.pages).children;
+
+    thisApp.activatePage();
+  },
+
   initMenu: function(){
     const thisApp = this;
 
@@ -15,7 +23,7 @@ const app = {
     const thisApp= this;
       
     thisApp.data = {};
-    const url = settings.db.url + '/' + settings.db.products;
+    const url = settings.db.url + '/' + settings.db.product;
 
     fetch(url)
       .then(function(rawResponse){
