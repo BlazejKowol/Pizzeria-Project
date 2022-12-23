@@ -75,7 +75,7 @@ const app = {
         return rawResponse.json();
       })
       .then(function(parsedResponse){
-        console.log(parsedResponse);
+        //console.log(parsedResponse);
         /*save parsedResponse as thisApp.data.products*/
 
         thisApp.data.products = parsedResponse;
@@ -112,8 +112,8 @@ const app = {
     const thisApp = this;
     console.log('*** App starting ***');
     console.log('thisApp:', thisApp);
-    console.log('classNames:', classNames);
-    console.log('settings:', settings);
+    //console.log('classNames:', classNames);
+    //console.log('settings:', settings);
     console.log('templates:', templates);
 
     thisApp.initPages();

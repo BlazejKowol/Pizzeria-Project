@@ -204,7 +204,6 @@
        }
     ],
     "orders": [],
-
     "events": [
       {
         "id": 1,
@@ -257,5 +256,15 @@
         "starters": ["lemonWater"]
       }
     ],
-    "bookings": []
+    "bookings": [
+      {
+         "id": 1,
+         "date": "2022-12-21",
+         "hour": "18:30",
+         "table": 1,
+         "duration": 3,
+         "ppl": 4,
+         "starters": ["water"]
+       }
+    ]
  }
