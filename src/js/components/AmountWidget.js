@@ -36,6 +36,7 @@ class AmountWidget extends BaseWidget {
 
   initActions(){
     const thisWidget = this;
+
     thisWidget.dom.input.addEventListener('change', function(){
       thisWidget.value = thisWidget.dom.input.value;
     });
@@ -47,6 +48,8 @@ class AmountWidget extends BaseWidget {
       event.preventDefault();
       thisWidget.setValue(thisWidget.value + 1);
     });
+
+    thisWidget.setValue(thisWidget.value);
   }
 }
 
