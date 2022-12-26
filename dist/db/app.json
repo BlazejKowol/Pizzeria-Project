@@ -532,6 +532,20 @@
       "phone": "",
       "address": "",
       "id": 22
+    },
+    {
+      "date": "2022-12-27",
+      "hour": "16:30",
+      "table": null,
+      "duration": 3,
+      "people": 1,
+      "starters": [
+        "water",
+        "bread"
+      ],
+      "phone": "",
+      "address": "",
+      "id": 23
     }
   ]
 }
