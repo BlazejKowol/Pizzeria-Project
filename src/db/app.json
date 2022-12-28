@@ -219,7 +219,7 @@
         "id": 2,
         "date": "2021-01-01",
         "hour": "16:00",
-        "table": 3,
+        "table": 1,
         "repeat": "daily",
         "duration": 2,
         "ppl": 3,

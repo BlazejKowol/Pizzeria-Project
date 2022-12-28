@@ -1,0 +1,56 @@
+//Home Page
+
+.home-page {
+    padding: 36px 0;
+}
+
+.services {
+    margin: ($base-size / 2) 0;
+    padding: ($base-size * 6) ($base-size * 4);
+    background: $color-light;
+    border-bottom: 1px solid lighten($color-dark, 70%);
+    border-radius: $radius;
+}
+
+.services .col {
+    background-color: $color-main;
+    padding: 25px;
+    margin-top: 4px;
+    color: $color-light;
+}
+
+.services-main {
+    padding-bottom: 60px;
+    & a {
+        color: $color-light;
+        text-decoration: none;
+    }
+}
+
+.col-6 {
+    padding: 0;
+}
+
+p {
+    margin-bottom: 4px;
+}
+
+.image-text-one {
+    background-image: url(../images/assets/pizza-1.jpg);
+    background-size: cover;
+    padding: 25px;
+    margin-right: 2px;
+}
+
+.image-text-two {
+    background-image: url(../images/assets/pizza-2.jpg);
+    background-size: cover;
+    padding: 25px;
+    margin-left: 2px;
+}
+
+//Carousel
+
+.carousel {
+    padding-bottom: 90px;
+}

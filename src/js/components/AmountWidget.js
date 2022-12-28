@@ -49,7 +49,7 @@ class AmountWidget extends BaseWidget {
       thisWidget.setValue(thisWidget.value + 1);
     });
 
-    thisWidget.setValue(thisWidget.value);
+    thisWidget.setValue(thisWidget.dom.input.value || thisWidget.value);
   }
 }
 

@@ -8,7 +8,7 @@ class Booking {
   constructor(element) {
     const thisBooking = this;
 
-    thisBooking.pickedTables = [];
+    thisBooking.pickedTable = null;
     thisBooking.starters = [];
 
     thisBooking.render(element);
@@ -128,7 +128,7 @@ class Booking {
 
     thisBooking.date = thisBooking.datePicker.value;
     thisBooking.hour = utils.hourToNumber(thisBooking.hourPicker.value);
-
+    
     let allAvailable = false;
 
     if(
@@ -222,14 +222,16 @@ class Booking {
       }
     });
 
-    thisBooking.dom.allTables.addEventListener('click', function(){
+    /*thisBooking.dom.allTables.addEventListener('click', function(){
       thisBooking.initTables();
-    });
+    });*/
 
     thisBooking.dom.form.addEventListener('submit', function(event){
       event.preventDefault();
       thisBooking.sendBooking();
     });
+
+    thisBooking.initTables();
   }
 
   initTables(){
@@ -237,14 +239,20 @@ class Booking {
 
     thisBooking.dom.allTables.addEventListener('click', function(event){
       event.preventDefault();
+    
       if(event.target.classList.contains('table')){
         if(!event.target.classList.contains(classNames.booking.tableBooked)){
           for(let table of thisBooking.dom.tables){
-            if(table.classList.contains(classNames.booking.selected) && 
+            if(/*table.classList.contains(classNames.booking.selected) &&*/
               table !== event.target){ 
               table.classList.remove(classNames.booking.selected);
             } else {
               event.target.classList.toggle(classNames.booking.selected);
+              if(event.target.classList.contains(classNames.booking.selected)){
+                thisBooking.pickedTable = event.target.getAttribute('data-table');
+              } else {
+                thisBooking.pickedTable = null;
+              }          
             }
           }
         } else {
@@ -276,7 +284,7 @@ class Booking {
     const payload = {
       date: thisBooking.date,
       hour: utils.numberToHour(thisBooking.hour),
-      table: parseInt(thisBooking.tableId),
+      table: parseInt(thisBooking.pickedTable),
       duration: thisBooking.hoursAmount.value,
       people: thisBooking.peopleAmount.value,
       starters: [],

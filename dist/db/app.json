@@ -218,7 +218,7 @@
       "id": 2,
       "date": "2021-01-01",
       "hour": "16:00",
-      "table": 3,
+      "table": 1,
       "repeat": "daily",
       "duration": 2,
       "ppl": 3,
@@ -276,276 +276,94 @@
       ]
     },
     {
-      "date": "2022-12-25",
-      "hour": "12:00",
-      "duration": "3",
-      "people": "2",
-      "starters": [],
-      "phone": "54124",
-      "address": "5dsfdf",
+      "date": "2022-12-27",
+      "hour": "17:00",
+      "table": null,
+      "duration": 6,
+      "people": 1,
+      "starters": [
+        "water",
+        "bread"
+      ],
+      "phone": "",
+      "address": "",
       "id": 2
     },
     {
-      "date": "2022-12-25",
-      "hour": "12:00",
+      "date": "2022-12-27",
+      "hour": "17:00",
       "table": null,
-      "duration": 3,
-      "people": 3,
-      "starters": [],
-      "phone": "dasdasd",
-      "address": "zdas",
+      "duration": 6,
+      "people": 1,
+      "starters": [
+        "water",
+        "bread"
+      ],
+      "phone": "",
+      "address": "",
       "id": 3
     },
     {
-      "date": "2022-12-25",
+      "date": "2022-12-27",
       "hour": "12:00",
       "table": null,
       "duration": 3,
-      "people": 3,
-      "starters": [],
-      "phone": "dasdasd",
-      "address": "zdas",
+      "people": 1,
+      "starters": [
+        "water"
+      ],
+      "phone": "sad",
+      "address": "asd",
       "id": 4
     },
     {
-      "date": "2022-12-25",
-      "hour": "12:00",
-      "table": null,
-      "duration": 4,
-      "people": 2,
-      "starters": [],
-      "phone": "ss",
-      "address": "ws",
-      "id": 5
-    },
-    {
-      "date": "2022-12-25",
-      "hour": "15:00",
-      "table": null,
-      "duration": 2,
-      "people": 3,
-      "starters": [],
-      "phone": "8789",
-      "address": "ko",
-      "id": 6
-    },
-    {
-      "date": "2022-12-25",
+      "date": "2022-12-27",
       "hour": "12:00",
       "table": null,
       "duration": 3,
-      "people": 2,
+      "people": 1,
+      "starters": [
+        "water"
+      ],
+      "phone": "sad",
+      "address": "asd",
+      "id": 5
+    },
+    {
+      "date": "2022-12-27",
+      "hour": "12:00",
+      "table": null,
+      "duration": 1,
+      "people": 1,
+      "starters": [],
+      "phone": "",
+      "address": "",
+      "id": 6
+    },
+    {
+      "date": "2022-12-27",
+      "hour": "12:00",
+      "table": 2,
+      "duration": 1,
+      "people": 1,
       "starters": [],
       "phone": "",
       "address": "",
       "id": 7
     },
     {
-      "date": "2022-12-25",
-      "hour": "12:00",
-      "table": null,
+      "date": "2022-12-27",
+      "hour": "0:00",
+      "table": 1,
       "duration": 1,
       "people": 1,
-      "starters": [],
+      "starters": [
+        "water",
+        "bread"
+      ],
       "phone": "",
       "address": "",
       "id": 8
-    },
-    {
-      "date": "2022-12-25",
-      "hour": "12:00",
-      "table": null,
-      "duration": 2,
-      "people": 2,
-      "starters": [
-        "water",
-        "bread"
-      ],
-      "phone": "sd",
-      "address": "asd",
-      "id": 9
-    },
-    {
-      "date": "2022-12-25",
-      "hour": "12:00",
-      "table": null,
-      "duration": 2,
-      "people": 2,
-      "starters": [
-        "water"
-      ],
-      "phone": "sd",
-      "address": "asd",
-      "id": 10
-    },
-    {
-      "date": "2022-12-25",
-      "hour": "12:00",
-      "table": null,
-      "duration": 2,
-      "people": 2,
-      "starters": [
-        "water",
-        "bread"
-      ],
-      "phone": "aa1",
-      "address": "ad",
-      "id": 11
-    },
-    {
-      "date": "2022-12-25",
-      "hour": "12:00",
-      "table": null,
-      "duration": 2,
-      "people": 2,
-      "starters": [
-        "water"
-      ],
-      "phone": "aa1",
-      "address": "ad",
-      "id": 12
-    },
-    {
-      "date": "2022-12-25",
-      "hour": "12:00",
-      "table": null,
-      "duration": 3,
-      "people": 3,
-      "starters": [
-        "bread"
-      ],
-      "phone": "",
-      "address": "",
-      "id": 13
-    },
-    {
-      "date": "2022-12-25",
-      "hour": "12:00",
-      "table": null,
-      "duration": 3,
-      "people": 1,
-      "starters": [
-        "water",
-        "bread"
-      ],
-      "phone": "",
-      "address": "",
-      "id": 14
-    },
-    {
-      "date": "2022-12-25",
-      "hour": "12:00",
-      "table": null,
-      "duration": 3,
-      "people": 1,
-      "starters": [],
-      "phone": "",
-      "address": "",
-      "id": 15
-    },
-    {
-      "date": "2022-12-25",
-      "hour": "12:00",
-      "table": null,
-      "duration": 1,
-      "people": 1,
-      "starters": [],
-      "phone": "",
-      "address": "",
-      "id": 16
-    },
-    {
-      "date": "2022-12-25",
-      "hour": "12:00",
-      "table": null,
-      "duration": 3,
-      "people": 2,
-      "starters": [
-        "water",
-        "bread"
-      ],
-      "phone": "",
-      "address": "",
-      "id": 17
-    },
-    {
-      "date": "2022-12-25",
-      "hour": "12:00",
-      "table": null,
-      "duration": 3,
-      "people": 2,
-      "starters": [
-        "bread"
-      ],
-      "phone": "as",
-      "address": "ss",
-      "id": 18
-    },
-    {
-      "date": "2022-12-25",
-      "hour": "12:00",
-      "table": null,
-      "duration": 3,
-      "people": 2,
-      "starters": [
-        "bread"
-      ],
-      "phone": "as",
-      "address": "ss",
-      "id": 19
-    },
-    {
-      "date": "2022-12-25",
-      "hour": "12:00",
-      "table": null,
-      "duration": 3,
-      "people": 2,
-      "starters": [
-        "water"
-      ],
-      "phone": "as",
-      "address": "ss",
-      "id": 20
-    },
-    {
-      "date": "2022-12-25",
-      "hour": "12:00",
-      "table": null,
-      "duration": 3,
-      "people": 2,
-      "starters": [
-        "water"
-      ],
-      "phone": "as",
-      "address": "ss",
-      "id": 21
-    },
-    {
-      "date": "2022-12-25",
-      "hour": "12:00",
-      "table": null,
-      "duration": 2,
-      "people": 2,
-      "starters": [
-        "water"
-      ],
-      "phone": "",
-      "address": "",
-      "id": 22
-    },
-    {
-      "date": "2022-12-27",
-      "hour": "16:30",
-      "table": null,
-      "duration": 3,
-      "people": 1,
-      "starters": [
-        "water",
-        "bread"
-      ],
-      "phone": "",
-      "address": "",
-      "id": 23
     }
   ]
 }

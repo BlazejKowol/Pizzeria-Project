@@ -19,7 +19,7 @@ class Home {
   }
 
   initWidgets(){
-    const thisHome = this;
+    //const thisHome = this;
   }
 }
 
