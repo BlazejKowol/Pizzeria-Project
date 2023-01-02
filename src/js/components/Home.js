@@ -1,9 +1,10 @@
 import { templates, select } from '../settings.js';
 
 class Home {
-  constructor(element) {
+  constructor(element, app) {
     const thisHome = this;
 
+    thisHome.app = app;
     thisHome.render(element);
     thisHome.initActions();
   }
@@ -26,12 +27,10 @@ class Home {
     thisHome.dom.services.addEventListener('click', function(event){
       event.preventDefault();
       //debugger;
-
       let pageId = event.target.offsetParent.getAttribute('id-type');
       console.log('page id: ', pageId);
       if(pageId) {
-        thisHome.app.activatePage(pageId); 
-        //console.log('page id', pageId);
+        thisHome.app.activatePage(pageId);
       }
     });
   }

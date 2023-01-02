@@ -57,14 +57,6 @@ const app = {
 
   },
 
-  initHome: function(){
-    const thisApp = this;
-
-    const homePage = document.querySelector(select.containerOf.home);
-
-    thisApp.home= new Home(homePage);
-  },
-
   initMenu: function(){
     const thisApp = this;
 
@@ -117,6 +109,14 @@ const app = {
     thisApp.booking = new Booking(bookingWidget);
   },
 
+  initHome: function(){
+    const thisApp = this;
+
+    const homePage = document.querySelector(select.containerOf.home);
+
+    thisApp.home = new Home(homePage, thisApp);
+  },
+
   init: function(){
     const thisApp = this;
     console.log('*** App starting ***');
@@ -126,10 +126,10 @@ const app = {
     console.log('templates:', templates);
 
     thisApp.initPages();
-    thisApp.initHome();
     thisApp.initData();
     thisApp.initCart();
     thisApp.initBooking();
+    thisApp.initHome();
   },
 };
 
