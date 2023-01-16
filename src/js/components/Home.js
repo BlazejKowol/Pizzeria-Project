@@ -18,7 +18,7 @@ class Home {
     thisHome.dom.wrapper = element;
     thisHome.dom.wrapper.innerHTML = generatedHTML;
 
-    thisHome.dom.services = thisHome.dom.wrapper.querySelector(select.containerOf.servicesWrapper);
+    thisHome.dom.services = thisHome.dom.wrapper.querySelector(select.containerOf.servicesWrapper).children;
   }
 
   initActions(){

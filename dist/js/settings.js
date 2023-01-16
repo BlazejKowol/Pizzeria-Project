@@ -56,7 +56,7 @@ export const select = {
     starters: '.checkbox [name="starter"]',
   },
   nav: {
-    links: '.main-nav a',
+    links: '.main-nav a, .template-home a',
   },
 
   cart: {

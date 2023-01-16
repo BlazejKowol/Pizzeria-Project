@@ -125,11 +125,11 @@ const app = {
     //console.log('settings:', settings);
     console.log('templates:', templates);
 
-    thisApp.initPages();
     thisApp.initData();
     thisApp.initCart();
     thisApp.initBooking();
     thisApp.initHome();
+    thisApp.initPages();
   },
 };
 

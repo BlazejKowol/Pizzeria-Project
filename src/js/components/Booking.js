@@ -98,8 +98,6 @@ class Booking {
       }
     }
 
-    //console.log('this booking booked', thisBooking.booked);
-
     thisBooking.updateDOM();
   }
 
@@ -222,10 +220,6 @@ class Booking {
       }
     });
 
-    /*thisBooking.dom.allTables.addEventListener('click', function(){
-      thisBooking.initTables();
-    });*/
-
     thisBooking.dom.form.addEventListener('submit', function(event){
       event.preventDefault();
       thisBooking.sendBooking();
@@ -243,8 +237,7 @@ class Booking {
       if(event.target.classList.contains('table')){
         if(!event.target.classList.contains(classNames.booking.tableBooked)){
           for(let table of thisBooking.dom.tables){
-            if(/*table.classList.contains(classNames.booking.selected) &&*/
-              table !== event.target){ 
+            if(table !== event.target){ 
               table.classList.remove(classNames.booking.selected);
             } else {
               event.target.classList.toggle(classNames.booking.selected);
@@ -260,20 +253,6 @@ class Booking {
         }
       }
     });
-
-    /*thisBooking.dom.allTables.addEventListener('click', function(event){
-      event.preventDefault();
-      const tableId = event.target.getAttribute(select.booking.tables);
-      if(!event.target.classList.contains(classNames.booking.tableBooked)){
-        for(let table of thisBooking.dom.tables){
-            if(table.classList.contains(classNames.booking.selected)){;
-            table.classList.remove(classNames.booking.selected)
-            thisBooking.pickedTables.push(table);
-        } else {
-          alert('Not Available');
-        }
-      }
-    });*/
   }
 
   sendBooking(){
@@ -291,21 +270,6 @@ class Booking {
       phone: thisBooking.dom.phone.value,
       address: thisBooking.dom.address.value,
     };
-
-    /*thisBooking.dom.starters.addEventListener('click', function(event){
-      if(event.target.tagName == 'INPUT' &&
-          event.target.type == 'checkbox' &&
-          event.target.name == 'starter'){
-        console.log(event.target.value);
-        if(event.target.checked == true) {
-          thisBooking.payload.starters.push(event.target.value);
-        } else {
-          thisBooking.payload.starters.indexOf(event.target.value);
-          thisBooking.payload.starters.splice(event.target.value, 1);
-        }
-        console.log('starters', thisBooking.payload.starters);
-      }
-    });*/
 
     for(let starter of thisBooking.dom.starters) {
       if(starter.checked){
@@ -326,13 +290,6 @@ class Booking {
       .then(rawResponse => rawResponse.json())
       .then(parsedResponse => {
         console.log('Parsed Response', parsedResponse);
-        /*thisBooking.makeBooked(
-          parsedResponse.date,
-          parsedResponse.hour,
-          parsedResponse.duration,
-          parsedResponse.table
-        );
-        thisBooking.updateDOM();*/
       });   
   }
 }
