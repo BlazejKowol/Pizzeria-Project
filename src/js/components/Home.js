@@ -18,7 +18,7 @@ class Home {
     thisHome.dom.wrapper = element;
     thisHome.dom.wrapper.innerHTML = generatedHTML;
 
-    thisHome.dom.services = thisHome.dom.wrapper.querySelector(select.containerOf.servicesWrapper).children;
+    thisHome.dom.services = thisHome.dom.wrapper.querySelector(select.containerOf.servicesWrapper);
   }
 
   initActions(){
@@ -28,7 +28,6 @@ class Home {
       event.preventDefault();
       //debugger;
       let pageId = event.target.offsetParent.getAttribute('id-type');
-      console.log('page id: ', pageId);
       if(pageId) {
         thisHome.app.activatePage(pageId);
       }

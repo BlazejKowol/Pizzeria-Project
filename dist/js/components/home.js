@@ -28,7 +28,6 @@ class Home {
       event.preventDefault();
       //debugger;
       let pageId = event.target.offsetParent.getAttribute('id-type');
-      console.log('page id: ', pageId);
       if(pageId) {
         thisHome.app.activatePage(pageId);
       }

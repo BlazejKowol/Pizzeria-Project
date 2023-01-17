@@ -113,6 +113,11 @@ h4 {
 }
 
 .gallery .card:hover {
+
+    img {
+        filter: brightness(50%);
+    }
+
     .icons {
         font-size: 24px;
     }
@@ -120,6 +125,6 @@ h4 {
         color: $color-main;
     }
 
-    filter: brightness(50%);
+    
 }
 
